@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="open_weather_api_key">5b0118e74ec95121298f79de3a76039e</string>
+    <string name="open_weather_forecast_url">http://api.openweathermap.org/data/2.5/forecast/daily?q={0}&amp;mode=json&amp;units=metric&amp;cnt=7</string>
+</resources>
