@@ -5,5 +5,20 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="action_refresh">Refresh</string>
+    <string name="title_activity_forecast_detail">Details</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- SETTINGS -->
+    <string name="location_settings_category">Location Settings</string>
+    <string name="location_settings_use_current_location_summary">If true, Sunshine will locate your device to provide the current location</string>
+    <string name="location_settings_use_current_location_title">Use current location</string>
+
+    <string name="location_settings_default_location_summary">In case you don\'t want to check current location, what location do you want to check?</string>
+    <string name="location_settings_default_location_title">Default location</string>
+
+    <string name="forecast_units_category">Unit system</string>
+    <string name="forecast_units_title">Unit system</string>
+    <string name="forecast_units_sumary">Selecyt system units</string>
+
 
 </resources>

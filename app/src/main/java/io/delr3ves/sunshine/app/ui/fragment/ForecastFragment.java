@@ -1,12 +1,16 @@
 package io.delr3ves.sunshine.app.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.*;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 import io.delr3ves.sunshine.app.R;
 import io.delr3ves.sunshine.app.task.FetchWeatherTask;
+import io.delr3ves.sunshine.app.ui.ForecastDetailActivity;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -47,6 +51,15 @@ public class ForecastFragment extends Fragment {
         initializeForecastAdapter();
         ListView listView = (ListView) rootView.findViewById(R.id.listview_forecast);
         listView.setAdapter(mForecastAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String forecast = (String)parent.getItemAtPosition(position);
+                Intent showDetailIntent = new Intent(getActivity(), ForecastDetailActivity.class);
+                showDetailIntent.putExtra(Intent.EXTRA_TEXT, forecast);
+                startActivity(showDetailIntent);
+            }
+        });
         fetchWeather();
         return rootView;
     }

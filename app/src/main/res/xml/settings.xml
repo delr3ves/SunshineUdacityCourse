@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/location_settings_category">
+        <CheckBoxPreference
+            android:key="prefUseCurrentLocation"
+            android:defaultValue="false"
+            android:summary="@string/location_settings_use_current_location_summary"
+            android:title="@string/location_settings_use_current_location_title" />
+
+        <EditTextPreference
+            android:key="prefLocation"
+            android:summary="@string/location_settings_default_location_summary"
+            android:title="@string/location_settings_default_location_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/forecast_units_category">
+        <ListPreference
+            android:entries="@array/unitSystem"
+            android:entryValues="@array/unitSystem"
+            android:defaultValue="metric"
+            android:key="prefUnitSystem"
+            android:title="@string/forecast_units_title"
+            android:summary="@string/forecast_units_sumary" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
