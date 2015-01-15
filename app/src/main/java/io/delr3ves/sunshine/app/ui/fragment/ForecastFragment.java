@@ -7,17 +7,18 @@ import android.view.*;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 import io.delr3ves.sunshine.app.R;
+import io.delr3ves.sunshine.app.model.DailyWeatherInfo;
 import io.delr3ves.sunshine.app.task.FetchWeatherTask;
 import io.delr3ves.sunshine.app.ui.ForecastDetailActivity;
+import io.delr3ves.sunshine.app.ui.adapter.ForecastInformationListAdapter;
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class ForecastFragment extends Fragment {
 
-    private ArrayAdapter<String> mForecastAdapter;
+    private ArrayAdapter<DailyWeatherInfo> mForecastAdapter;
 
     public ForecastFragment() {
     }
@@ -54,9 +55,9 @@ public class ForecastFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String forecast = (String)parent.getItemAtPosition(position);
+                DailyWeatherInfo forecast = (DailyWeatherInfo) parent.getItemAtPosition(position);
                 Intent showDetailIntent = new Intent(getActivity(), ForecastDetailActivity.class);
-                showDetailIntent.putExtra(Intent.EXTRA_TEXT, forecast);
+                showDetailIntent.putExtra(ForecastDetailFragment.FORECAST_INFORMATION, forecast);
                 startActivity(showDetailIntent);
             }
         });
@@ -65,7 +66,7 @@ public class ForecastFragment extends Fragment {
     }
 
     private void initializeForecastAdapter() {
-        mForecastAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_forecast,
+        mForecastAdapter = new ForecastInformationListAdapter(getActivity(), R.layout.list_item_forecast,
                 R.id.list_item_forecast_textview);
     }
 

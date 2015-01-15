@@ -2,6 +2,7 @@ package io.delr3ves.sunshine.app.task;
 
 import android.os.AsyncTask;
 import android.widget.ArrayAdapter;
+import io.delr3ves.sunshine.app.model.DailyWeatherInfo;
 import io.delr3ves.sunshine.app.model.ForecastInformation;
 import io.delr3ves.sunshine.app.service.WeatherRetrieverService;
 import retrofit.RestAdapter;
@@ -12,9 +13,9 @@ import retrofit.RestAdapter;
 public class FetchWeatherTask extends AsyncTask<String, Void, ForecastInformation> {
 
     private WeatherRetrieverService weatherRetrieverService;
-    private ArrayAdapter<String> mAdapter;
+    private ArrayAdapter<DailyWeatherInfo> mAdapter;
 
-    public FetchWeatherTask(ArrayAdapter<String> adapter) {
+    public FetchWeatherTask(ArrayAdapter<DailyWeatherInfo> adapter) {
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint("http://api.openweathermap.org")
                 .build();
@@ -35,6 +36,6 @@ public class FetchWeatherTask extends AsyncTask<String, Void, ForecastInformatio
     protected void onPostExecute(ForecastInformation forecastInformation) {
         super.onPostExecute(forecastInformation);
         mAdapter.clear();
-        mAdapter.addAll(forecastInformation.asList());
+        mAdapter.addAll(forecastInformation.getList());
     }
 }
